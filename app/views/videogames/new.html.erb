@@ -2,3 +2,22 @@
   <h1>esta en nuestra 2da y ultima pagina para mostrar</h1>
   <p>Find me in app/views/pages/home.html.erb</p>
 </div>
+
+
+<div class="container">
+  <div class="col-6 mx-auto">
+    <div>
+      <%= simple_form_for [@videogame]  do |f| %>
+        <%= f.input :title %>
+        <%= f.input :price %>
+        <%= f.input :condition %>
+        <%= f.input :description %>
+        <%= f.input :platform %>
+        <%= f.input :status %>
+        <%= f.submit id="Save" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= current_user.id %>

@@ -12,9 +12,10 @@ class VideogamesController < ApplicationController
   end
 
   def create
+    params["videogame"][:user_id] = current_user.id
     @videogame = Videogame.new(videogame_params)
     if @videogame.save
-      redirect_to users_path
+      redirect_to  videogames_path
     else
       render :new, status: :unprocessable_entity
     end
