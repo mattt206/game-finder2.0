@@ -1,9 +1,13 @@
-class VideogameController < ApplicationController
+class VideogamesController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:show]
 
   def new
+    @videogame = Videogame.new
   end
 
   def create
+
   end
 
   def show
