@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row ">
+
+    <% @videogames.each do |game| %>
+    <div class="card-group">
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
+            <p class="card-text"> <%= game.description %> </p>
+            <p class="card-text"><small class="text-muted"> Owner: <%= game.user_id %></small></p>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
