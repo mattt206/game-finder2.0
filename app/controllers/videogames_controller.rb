@@ -1,6 +1,6 @@
 class VideogamesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_videogames, only: %i[show edit update destroy]
 
   def index
@@ -29,12 +29,12 @@ class VideogamesController < ApplicationController
 
   def update
     @videogame.update(videogame_params)
-    redirect_to videogames_path
+    redirect_to videogame_path(@videogame)
   end
 
   def destroy
     @videogame.destroy
-    redirect_to home_path, status: :see_other
+    redirect_to videogames_path, status: :see_other
   end
 
   private
