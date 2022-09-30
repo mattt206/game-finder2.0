@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :videogames
+
+  validates :username, :email, presence: true
+
 end
