@@ -4,7 +4,15 @@ class VideogamesController < ApplicationController
   before_action :set_videogames, only: %i[show edit update destroy]
 
   def index
-    @videogames = Videogame.all
+    if params[:query].present?
+      @query = params[:query]
+      @videogames = Videogame.where("title LIKE '%#{@query}%'")
+      if @videogames.size.zero?
+        @videogames = Videogame.all
+      end
+    else
+      @videogames = Videogame.all
+    end
   end
 
   def new
