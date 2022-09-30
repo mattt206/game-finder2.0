@@ -1,11 +1,9 @@
 <div class="container">
-  <div class="row">
-
-    <div class="d-flex flex-wrap m-2 card-group">
+  <div class="row row row-cols-2">
         <% @videogames.each do |game| %>
 
-            <div class="card m-1 ">
-              <%= cl_image_tag game.gamepicture.key, class: "card-img-top", width: 150, height: 150 %>
+            <div class="card m-1 col" style="width: 18rem;">
+                <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid"%>
               <div class="card-body">
                 <h5 class="card-title"><%= game.title %></h5>
                 <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
@@ -17,7 +15,6 @@
               </div>
           </div>
         <% end %>
-    </div>
 
   </div>
 </div>
