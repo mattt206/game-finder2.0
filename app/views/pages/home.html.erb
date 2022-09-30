@@ -4,13 +4,11 @@
   <p>NEW GAMES EVERY DAY</p>
   <div class="input-group mb-3" data-controller="home">
 
-      <form data-action="click->home#busqueda" action="videogames" >
-        <input type="search" class="form-control" placeholder="Call of Duty" name="query" aria-label="Call of Duty" aria-describedby="button-addon2" value="" data-home-target="search" id="busq">
+      <form class="d-flex" data-action="click->home#busqueda" action="videogames" >
+        <input type="search" class="form-control me-2" placeholder="Call of Duty" name="query" aria-label="Call of Duty" aria-describedby="button-addon2" value="" data-home-target="search" id="busq">
         <button class="btn btn-primary" type="submit" class="form-control" data-home-target="search"  id="botons" Onclick="setUrl(); return false;">Search</button>
       </form>
 
-
-    <br>
   </div>
   <div class= "btn-signup d-flex flex-column align-items-center">
   <form class ="justify-content-center" action="users/sign_up">
