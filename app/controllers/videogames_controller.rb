@@ -29,6 +29,7 @@ class VideogamesController < ApplicationController
 
   def update
     @videogame.update(videogame_params)
+    redirect_to videogames_path
   end
 
   def destroy
@@ -39,10 +40,10 @@ class VideogamesController < ApplicationController
   private
 
   def set_videogames
-    @videogame = @videogame.find(params[:id])
+    @videogame = Videogame.find(params[:id])
   end
 
   def videogame_params
-    params.require(:videogame).permit(:user_id, :title, :price, :condition, :description, :platform, :status, :photo)
+    params.require(:videogame).permit(:user_id, :title, :price, :condition, :description, :platform, :status, :gamepicture)
   end
 end
