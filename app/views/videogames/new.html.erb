@@ -8,10 +8,10 @@
       <%= simple_form_for [@videogame]  do |f| %>
         <%= f.input :title %>
         <%= f.input :price %>
-        <%= f.input :condition %>
+        <%= f.input :condition, collection: ['Nuevo','Usado'] %>
         <%= f.input :description %>
         <%= f.input :platform %>
-        <%= f.input :status %>
+        <%= f.input :status, collection: ['1','2','3','4','5']  %>
         <%= f.input :gamepicture, as: :file %>
         <%= f.submit id="Save" %>
       <% end %>

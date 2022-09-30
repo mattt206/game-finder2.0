@@ -1,19 +1,23 @@
 <div class="container">
-  <div class="row ">
+  <div class="row">
 
-    <% @videogames.each do |game| %>
-    <div class="card-group">
-      <div class="card-group">
-        <div class="card">
-          <%= cl_image_tag game.gamepicture.key, class: "card-img-top", width: 150, height: 150 %>
-          <div class="card-body">
-            <h5 class="card-title"><%= game.title %></h5>
-            <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
-            <p class="card-text"> <%= game.description %> </p>
-            <p class="card-text"><small class="text-muted"> Owner: <%= game.user_id %></small></p>
+    <div class="d-flex flex-wrap m-2 card-group">
+        <% @videogames.each do |game| %>
+
+            <div class="card m-1 ">
+              <%= cl_image_tag game.gamepicture.key, class: "card-img-top", width: 150, height: 150 %>
+              <div class="card-body">
+                <h5 class="card-title"><%= game.title %></h5>
+                <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
+                <p class="card-text"> <%= game.description %> </p>
+                <p class="card-text"><small class="text-muted"> Owner: <%= game.user_id %></small></p>
+                <%= link_to "Details", videogame_path(game)%>
+                <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+              </div>
           </div>
-      </div>
+        <% end %>
     </div>
-    <% end %>
+
   </div>
 </div>
