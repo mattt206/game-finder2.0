@@ -1,1 +1,41 @@
 // Specific CSS for your home-page
+.container {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 150px;
+
+h1 {
+  font-weight: 800;
+  font-size: 60px;
+  padding: 0px 120px;
+  letter-spacing: 5px;
+
+}
+
+p {
+  font-size: 20px;
+  padding: 0px 220px 20px;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #33cc33;
+  border-color: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: black;
+  }
+
+}
+
+.input-group {
+  width: 700px;
+
+  .form-control {
+  border-radius: 5px;
+  }
+}
+
+}
