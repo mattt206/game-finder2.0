@@ -1,0 +1,25 @@
+.signup-container {
+  padding: 150px 500px;
+
+  h2 {
+    color: white;
+    padding-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .form-inputs {
+    color: white;
+  }
+
+  .form-actions {
+    background-color: #33cc33;
+    width: 90px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+  }
+}
