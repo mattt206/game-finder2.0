@@ -7,3 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "agregando user"
+Movie.destroy_all
