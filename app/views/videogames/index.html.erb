@@ -8,7 +8,8 @@
                 <h5 class="card-title"><%= game.title %></h5>
                 <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
                 <p class="card-text"> <%= game.description %> </p>
-                <p class="card-text"><small class="text-muted"> Owner: <%= game.user_id %></small></p>
+                <p class="card-text"><small class="text-muted"> Owner: <%= game.user.username %></small></p>
+                <%= link_to "Details", videogame_path(game)%>
                 <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
               </div>
