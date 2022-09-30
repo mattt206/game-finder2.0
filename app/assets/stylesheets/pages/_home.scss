@@ -1,8 +1,9 @@
 // Specific CSS for your home-page
-.container {
+.home_container{
   width: fit-content;
   margin: 0 auto;
   padding: 150px;
+
 
 h1 {
   font-weight: 800;
@@ -38,4 +39,10 @@ p {
   }
 }
 
+}
+.fondo{
+  background-image: url('fondo1.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
