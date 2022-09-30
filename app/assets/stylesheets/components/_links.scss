@@ -1,0 +1,74 @@
+.btn-login {
+  background-color: #021074;
+  width: 80px;
+  border-radius: 5px;
+  padding: 10px 4px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+  h3 {
+    font-size: 16px;
+    margin: 10px;
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+}
+
+.btn-signup1 {
+  background-color: #021074;
+  width: 90px;
+  border-radius: 5px;
+  padding: 13px 4px;
+  margin-left: 50px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+  h3 {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+}
+
+.btn-forgot {
+  background-color: #d93305;
+  width: 200px;
+  border-radius: 5px;
+  padding: 13px 6px;
+  margin-left: 50px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+  h3 {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+}
