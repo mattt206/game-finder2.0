@@ -9,24 +9,30 @@ h1 {
   font-weight: 800;
   font-size: 60px;
   padding: 0px 120px;
+  color: white;
 }
 
 p {
   font-size: 20px;
-  padding: 0px 220px 20px;
+  padding: 0px 230px 20px;
   text-decoration: underline;
+  color: white;
 }
 
 .btn-primary {
   color: white;
   background-color: #33cc33;
-  border-color: none;
   border-radius: 5px;
 
   &:hover {
     background-color: black;
   }
 
+}
+
+.btn-signup {
+  padding: 15px 280px;
+  border-radius: 5px;
 }
 
 .input-group {
