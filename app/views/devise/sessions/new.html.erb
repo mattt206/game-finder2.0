@@ -13,14 +13,11 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions">
+      <div class="form-actions d-inline-flex">
         <%= f.button :submit, "Log in" %>
+        <div class=""><%= render "devise/shared/link-signup" %></div>
+        <div class="btn-forgot1"><%= render "devise/shared/link-forgot" %></div>
       </div>
     <% end %>
-    <br>
-    <div class="links">
-      <%= render "devise/shared/links" %>
-    </div>
-    <p></p>
   </div>
 </div>
