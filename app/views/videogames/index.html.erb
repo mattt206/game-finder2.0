@@ -5,7 +5,7 @@
     <div class="card-group">
       <div class="card-group">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <%= cl_image_tag game.gamepicture.key, class: "card-img-top", width: 150, height: 150 %>
           <div class="card-body">
             <h5 class="card-title"><%= game.title %></h5>
             <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
