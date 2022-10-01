@@ -21,14 +21,27 @@
           </div>
         </div>
         <div class="col-5">
-          <div class="card">
-          <div class="p-2">
-            owner: <%= @videogame.user.username %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
-          </div>
-            <p>aca va el booking</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolorum molestiae vitae consequatur rem maxime officia inventore, voluptate deserunt laborum magni aperiam iste vel eius id ea ab at delectus.</p>
-            <%= link_to 'Reservar' %>
+          <div class="card p-3">
+              <div class="my-2 d-flex justify-content-between">
+                owner: <%= @videogame.user.username %>
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+              </div>
+                <p>aca va el booking</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolorum molestiae vitae consequatur rem maxime officia inventore, voluptate deserunt laborum magni aperiam iste vel eius id ea ab at delectus.</p>
+                <%= link_to 'Reservar', value: 1  %>
+
+                <% if @num.to_i == 1 %>
+                <h1><%= @num %></h1>
+            <div>
+                    <%= simple_form_for [@videogame]  do |f| %>
+                    <%= f.input :title, value: "fecha" %>
+                    <%= @videogame.price %>
+
+                    <%= f.submit id="Save" %>
+                    <% @num = 0 %>
+      <% end %>
+            </div>
+            <% end  %>
           </div>
         </div>
       </div>
