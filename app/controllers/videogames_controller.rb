@@ -30,6 +30,8 @@ class VideogamesController < ApplicationController
   end
 
   def show
+    @num = 0
+    @num = params[:value]
   end
 
   def edit
