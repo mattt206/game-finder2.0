@@ -1,21 +1,16 @@
 <div class="container">
-  <div class="row row row-cols-2">
+  <div class="row row-cols-5">
         <% @videogames.each do |game| %>
-
-            <div class="card m-1 col" style="width: 18rem;">
+            <div class="index-card m-2 mt-3">
                 <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid"%>
               <div class="card-body">
-                <h5 class="card-title"><%= game.title %></h5>
-                <p><% game.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
-                <p class="card-text"> <%= game.description %> </p>
-                <p class="card-text"><small class="text-muted"> Owner: <%= game.user.username %></small></p>
+                <h3> <%= game.title.capitalize %> </h5>
+                <h2> $<%= game.price %> COP </h2>
                 <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
-              </div>
-              <div style="padding-bottom: 15px">
                 <%= link_to "Details", videogame_path(game)%>
               </div>
-          </div>
+
+            </div>
         <% end %>
 
   </div>

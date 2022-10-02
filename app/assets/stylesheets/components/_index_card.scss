@@ -1,0 +1,48 @@
+.index-card {
+  background-color: #1F0A4E;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
+  transition: all 300ms;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.index-card:hover {
+  transform: scale(1.05);
+}
+
+.index-card > img {
+  display: flex;
+  height: 300px;
+  object-fit: cover;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.index-cards {
+  margin-left: 300px;
+  margin-right: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+
+.index-card h3 {
+  padding-left: 5px;
+  font-size: 30px;
+  margin: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+}
+
+.index-card h2 {
+  padding-left: 5px;
+  font-size: 25px;
+  margin: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
+}
