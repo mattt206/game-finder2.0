@@ -1,48 +1,52 @@
 <div class="container">
 
-
       <div class="card-group row my-2 py-2">
-        <div class=" card col-7">
-          <div style="width: 50%"><%= cl_image_tag @videogame.gamepicture.key, class: "card-img-top "%></div>
-          <div class="card-body">
-            <h5 class="card-title"><%= @videogame.title %></h5>
-            <p><% @videogame.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></p>
-            <p class="card-text"> <%= @videogame.description %> </p>
-            <p class="card-text"> $ <%= @videogame.price %> </p>
-            <p class="card-text"> platform: <%= @videogame.platform %></p>
-            <p class="card-text"> Condition: <%= @videogame.condition %></p>
+        <div class="show-card col-8 mt-3">
+          <div>
+            <%= cl_image_tag @videogame.gamepicture.key, class: "card-img-top img-fluid"%>
+          </div>
+          <div class="show-card-body">
+            <h2 ><%= @videogame.title.titleize %></h2>
+            <h4><% @videogame.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></h4>
+            <h4> <%= @videogame.description %> </h4>
+            <h4> Platforma: <%= @videogame.platform %></h4>
+            <h4> Condición: <%= @videogame.condition %></h4>
 
             <%#= hacer un if si esta alquilado o no  %>
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <div class="show-card-links">
               <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-            <%= link_to "Edit", edit_videogame_path(@videogame) %>
-            <%= link_to "Back", videogames_path %>
-
+              <%= link_to "Edit", edit_videogame_path(@videogame) %>
+              <%= link_to "Back", videogames_path %>
+            </div>
           </div>
         </div>
-        <div class="col-5">
-          <div class="card p-3">
-              <div class="my-2 d-flex justify-content-between">
-                owner: <%= @videogame.user.username %>
+
+        <div class="col-4 mt-3">
+          <div class="booking-card p-3">
+              <div class="my-2 d-flex justify-content-between mb-4">
+                Ofrecido por   <%= @videogame.user.username %>
                   <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
               </div>
-                <p>aca va el booking</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolorum molestiae vitae consequatur rem maxime officia inventore, voluptate deserunt laborum magni aperiam iste vel eius id ea ab at delectus.</p>
-                <%= link_to 'Reservar', value: 1  %>
+                <h2> $<%= @videogame.price %> COP </h2>
+                <%= link_to 'Reservar ahora', value: 1, class: "Booking-link" %>
+                <form action="videogames" >
+                  <button type="submit" class="Booking-link" > <p>Reservar ahora</p></button>
+                </form>
 
                 <% if @num.to_i == 1 %>
                 <h1><%= @num %></h1>
             <div>
                     <%= simple_form_for [@videogame]  do |f| %>
-                    <%= f.input :title, value: "fecha" %>
-                    <%= @videogame.price %>
+                      <%= f.input :title, value: "fecha" %>
+                      <%= @videogame.price %>
 
-                    <%= f.submit id="Save" %>
-                    <% @num = 0 %>
-      <% end %>
+                      <%= f.submit id="Save" %>
+                      <% @num = 0 %>
+                    <% end %>
             </div>
-            <% end  %>
-          </div>
+              <% end  %>
+            </div>
         </div>
       </div>
 

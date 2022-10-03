@@ -1,0 +1,56 @@
+.booking-card {
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  padding-left: 0;
+  background-color: #4618AC;
+  color: white;
+}
+
+.booking-card p {
+  font-size: 15px;
+  font-weight: 600;
+  width: 371px;
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.booking-card .booking-card-info {
+  padding: 16px;
+}
+
+.booking-card h2 {
+  padding-left: 5px;
+  font-size: 35px;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.booking-card h4 {
+  padding-left: 5px;
+  font-size: 20px;
+  margin-left: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white;
+}
+
+.booking-card-links {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  left: 328px;
+}
+
+.Booking-link {
+  background-color: #ffcc32;
+  border: 0;
+  color: black;
+}
+
+.Booking-link:hover {
+  background-color: #ffb224;
+}
