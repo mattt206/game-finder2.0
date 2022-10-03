@@ -4,7 +4,7 @@
             <div class="index-card m-2 mt-3">
                 <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid"%>
               <div class="card-body">
-                <h3> <%= game.title.capitalize %> </h5>
+                <h3> <%= game.title.titleize %> </h5>
                 <h2> $<%= game.price %> COP </h2>
                 <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                 <%= link_to "Details", videogame_path(game)%>
