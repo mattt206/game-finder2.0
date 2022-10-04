@@ -29,23 +29,17 @@
                   <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
               </div>
                 <h2> $<%= @videogame.price %> COP </h2>
+
                 <%= link_to 'Reservar ahora', value: 1, class: "Booking-link booking-active" %>
                 <form action="videogames">
                   <button type="submit" class="Booking-link", value = 1 > <p>Reservar ahora</p></button>
+
                 </form>
-
-                <% if @num.to_i == 1 %>
-                <h1><%= @num %></h1>
-            <div>
-                    <%= simple_form_for [@videogame]  do |f| %>
-                      <%= f.input :title, value: "fecha" %>
-                      <%= @videogame.price %>
-
-                      <%= f.submit id="Save" %>
-                      <% @num = 0 %>
-                    <% end %>
             </div>
-              <% end  %>
+            <div>
+              <p>hola</p>
+              <%= @booking.user %>
+              <%= @videogame.user.username %>
             </div>
         </div>
       </div>
