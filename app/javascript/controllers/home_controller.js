@@ -9,8 +9,8 @@ export default class extends Controller {
 
   busqueda() {
     const search = this.searchTarget;
-    const elem = document.getElementById('busq').value;
-    const dosel = document.getElementById('botons');
+    // const elem = document.getElementById('busq').value;
+    // const dosel = document.getElementById('botons');
   }
 
   setUrl() {

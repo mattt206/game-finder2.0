@@ -7,13 +7,16 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+  end
+
   def create
     @videogame = Videogame.find(params[:videogame_id])
     @booking = Booking.new(bookings_params)
     @booking.user_id = current_user.id
     @booking.videogame_id = @videogame.id
+    @booking.status = true
     if @booking.save
-      @booking.status = true
       redirect_to  videogame_path(@booking.videogame)
     else
       render :new, status: :unprocessable_entity
@@ -37,6 +40,5 @@ class BookingsController < ApplicationController
   def bookings_params
     params.require(:booking).permit(:star_date, :end_date)
   end
-
 
 end

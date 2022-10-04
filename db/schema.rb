@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_040056) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_035300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_040056) do
     t.bigint "videogame_id", null: false
     t.date "star_date"
     t.date "end_date"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
