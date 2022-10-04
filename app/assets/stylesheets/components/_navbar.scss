@@ -16,30 +16,57 @@
   color: white;
   font-weight: 400;
   padding: 5px 20px;
+  font-style: italic;
 }
 
 .navbar-nav li {
   color: white;
   padding: 5px;
-  margin: auto 10px;
+  margin: auto 5px;
   font-weight: bold;
+  font-style: italic;
 }
 
 .nav-link {
   border-radius: 5px;
+  border-radius: 100px 40px 100px 40px;
+  font-style: italic;
+
+  &:hover {
+    color: #021074;
+  }
+
 }
 
 .m-nav-item {
   background-color: #021074;
-  border-radius: 5px;
+  border-radius: 100px 40px 100px 40px;
+
+  &:hover {
+    background-color: #0720dc;
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
 }
 
 .n-nav-item {
   background-color: #021074;
-  border-radius: 5px;
+  border-radius: 100px 40px 100px 40px;
+
+  &:hover {
+    background-color: #0720dc;
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
 }
 
 .nav-item {
   background-color: #021074;
-  border-radius: 5px;
+  border-radius: 100px 40px 100px 40px;
 }

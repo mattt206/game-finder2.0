@@ -13,21 +13,30 @@ h1 {
 }
 
 p {
-  font-size: 20px;
-  padding: 0px 230px 20px;
-  text-decoration: underline;
+  font-size: 19px;
+  text-decoration: overline underline;
   color: white;
+  font-style: italic;
+  font-weight: 500;
 }
 
 .btn-primary {
   color: white;
-  background-color: #33cc33;
+  background-color: rgb(7, 219, 7);
   border-radius: 5px;
+  border-radius: 100px 40px 100px 40px;
+  font-weight: 500;
+  font-style: italic;
 
   &:hover {
     background-color: black;
   }
 
+}
+
+.form-control {
+  border-radius: 100px 40px 100px 40px;
+  width: 600px;
 }
 
 .btn-signup {
