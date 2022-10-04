@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["search"];
+  static targets = ["search", "prueba"];
 
   connect() {
 
@@ -17,5 +17,10 @@ export default class extends Controller {
     window.location.href = 'videogames?query=' + document.getElementById('busq').value;
 
 };
+
+  change(){
+    this.pruebaTarget.innerHTML = "xd";
+
+  }
 
 }
