@@ -13,10 +13,12 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions d-inline-flex">
-        <%= f.button :submit, "Log in" %>
-        <div class=""><%= render "devise/shared/link-signup" %></div>
-        <div class="btn-forgot1"><%= render "devise/shared/link-forgot" %></div>
+      <div class="container">
+        <div class="row ">
+          <div class="col-12 d-flex justify-content-center">
+            <%= f.button :submit, "Log in", class: "btn btn-success mx-2" %> <%= render "devise/shared/link-signup"%> <%= render "devise/shared/link-forgot"%>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

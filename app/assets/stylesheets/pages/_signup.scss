@@ -11,15 +11,16 @@
     color: white;
   }
 
-  .form-actions {
-    background-color: #33cc33;
-    width: 100px;
-    border-radius: 5px;
+  .btn-success {
+    background-color: rgb(7, 219, 7);
+    font-weight: 600;
+    font-style: italic;
+    color: white;
+    border-radius: 100px 40px 100px 40px;
 
-    &:hover {
+    &:hover{
       background-color: black;
       color: white;
     }
-
   }
 }
