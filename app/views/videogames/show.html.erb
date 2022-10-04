@@ -29,17 +29,18 @@
                   <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
               </div>
                 <h2> $<%= @videogame.price %> COP </h2>
-
-                <%= link_to 'Reservar ahora', value: 1, class: "Booking-link booking-active" %>
-                <form action="videogames">
-                  <button type="submit" class="Booking-link", value = 1 > <p>Reservar ahora</p></button>
-
+                 <%= link_to 'Reservar ahora', new_videogame_booking_path(@videogame), value: 1, class: "Booking-link" %>
+                <form action="new_booking" >
+                  <button type="submit" class="Booking-link" > <p>Reservar ahora</p></button>
                 </form>
             </div>
             <div>
               <p>hola</p>
-              <%= @booking.user %>
-              <%= @videogame.user.username %>
+              <% if @videogame.bookings.last == nil %>
+              <% else %>
+                <p>entro </p>
+                <%=   @videogame.bookings.last.status  %>
+              <% end %>
             </div>
         </div>
       </div>
