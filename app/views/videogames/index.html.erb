@@ -1,15 +1,16 @@
 <div class="container">
-  <div class="row row-cols-5">
+  <div class="card-group">
         <% @videogames.each do |game| %>
+          <%= link_to videogame_path(game), style: "text-decoration: none;" do %>
             <div class="index-card m-2 mt-3">
                 <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid"%>
               <div class="card-body">
                 <h3> <%= game.title.titleize %> </h5>
                 <h2> $<%= game.price %> COP </h2>
                 <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                <%= link_to "Details", videogame_path(game)%>
               </div>
             </div>
+          <% end %>
         <% end %>
   </div>
 </div>
