@@ -10,14 +10,18 @@
             <h4><% @videogame.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></h4>
             <h4> <%= @videogame.description %> </h4>
             <h4> Platforma: <%= @videogame.platform %></h4>
+            <h4> description: <%= @videogame.description %></h4>
             <h4> Condición: <%= @videogame.condition %></h4>
 
             <%#= hacer un if si esta alquilado o no  %>
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <div class="show-card-links">
-              <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-              <%= link_to "Edit", edit_videogame_path(@videogame) %>
-              <%= link_to "Back", videogames_path %>
+            <%= @videogame.user.id %>
+              <% if @videogame.user.id == current_user.id %>
+                <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                <%= link_to "Edit", edit_videogame_path(@videogame) %>
+              <% end %>
+              <%= link_to "Back", videogames_path%>
             </div>
           </div>
         </div>
@@ -25,23 +29,42 @@
         <div class="col-4 mt-3">
           <div class="booking-card p-3">
               <div class="my-2 d-flex justify-content-between mb-4">
-                Ofrecido por   <%= @videogame.user.username %>
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+                Offer by:   <%= @videogame.user.username %>
+                  <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
               </div>
                 <h2> $<%= @videogame.price %> COP </h2>
-                 <%= link_to 'Reservar ahora', new_videogame_booking_path(@videogame), value: 1, class: "Booking-link" %>
-                <form action="new_booking" >
+              <% if @videogame.bookings.last == nil %>
+                <form action= "<%= @videogame.id %>/bookings/new" >
                   <button type="submit" class="Booking-link" > <p>Reservar ahora</p></button>
                 </form>
+                <div class="my-2 d-flex mb-4 justify-content-end">
+                  <%= image_tag "green-button.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+              </div>
+              <% else %>
+                <% if @videogame.bookings.last.user_id == current_user.id %>
+                  <%= link_to "Show Booking", booking_path(@videogame.bookings.last.id) %>
+                <% end %>
+                <p class="Booking-link text-center">Reservado </p>
+                <div class="my-2 d-flex mb-4 justify-content-end">
+                  <%= image_tag "red-button.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+              </div>
+
+              <% end %>
             </div>
             <div>
               <p>hola</p>
               <% if @videogame.bookings.last == nil %>
               <% else %>
-                <p>entro </p>
+                <% if @videogame.bookings.last.user_id == current_user.id %>
+                  <%= link_to "Show Booking", booking_path(@videogame.bookings.last.id) %>
+                <% end %>
                 <%=   @videogame.bookings.last.status  %>
+                <%= @videogame.bookings.last.user_id %>
               <% end %>
             </div>
+
+
+
         </div>
       </div>
 

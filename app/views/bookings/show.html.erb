@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    Booking_active
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">star_date:<%= @booking.star_date %></p>
+    <p class="card-text">End_date:<%= @booking.end_date %></p>
+    <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
