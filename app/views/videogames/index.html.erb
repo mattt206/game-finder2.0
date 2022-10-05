@@ -1,5 +1,30 @@
 <div class="container">
-  <div class="card-group">
+
+      <div class="card-group">
+      <form action="videogames">
+          <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value="play">play station</button>
+          <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value="xbox">xbox</button>
+          <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value ="pc">pc</button>
+          <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value ="" >none</button>
+          <p>filtro es: </p><%= @filtro.class %>
+            <% if @filtro != "" %>
+                  <%= @videogames.select { |game| game.platform.include?("#{@filtro}") } %>
+
+                      <p>filtro</p>
+            <% else %>
+                   <p>nada</p>
+            <% end %>
+
+      </form>
+      </div>
+
+
+
+
+
+  <div class="card-group mx-auto">
+
+
         <% @videogames.each do |game| %>
           <%= link_to videogame_path(game), style: "text-decoration: none;" do %>
             <div class="index-card m-2 mt-3">

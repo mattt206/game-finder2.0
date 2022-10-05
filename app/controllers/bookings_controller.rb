@@ -27,8 +27,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+
     @booking.destroy
-    redirect_to videogames_path, status: :see_other
+    redirect_to videogame_path(@booking.videogame), status: :see_other
   end
 
   private

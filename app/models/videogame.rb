@@ -4,5 +4,6 @@ class Videogame < ApplicationRecord
   has_many :bookings
 
   validates :title, :price, :condition, :platform, :status, presence: true
-  validates :description, presence: true, length: { minimum: 8 }
+  validates :description, presence: true, length: { minimum: 8, maximum: 120 }
 end
+

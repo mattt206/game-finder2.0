@@ -4,8 +4,9 @@ class VideogamesController < ApplicationController
   before_action :set_videogames, only: %i[show edit update destroy]
 
   def index
+    @filtro = params[:filtrop]
     if params[:query].present?
-      @query = params[:query]
+      @query = params[:query].downcase
       @videogames = Videogame.where("title LIKE '%#{@query}%'")
       if @videogames.size.zero?
         @videogames = Videogame.all
@@ -45,6 +46,10 @@ class VideogamesController < ApplicationController
   def destroy
     @videogame.destroy
     redirect_to videogames_path, status: :see_other
+  end
+
+  def dashboard
+    @usuario = current_user.id
   end
 
   private
