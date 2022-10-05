@@ -1,19 +1,22 @@
 
-<div class="container">
+<div class="newgame-container">
   <div class="col-6 mx-auto">
-    <div class="container">
-      <h1>Add a Videogame to rent</h1>
+    <div class="container mt-5">
+      <h2 class="d-flex justify-content-center">Add a Videogame to rent</h2>
     </div>
-    <div>
+    <div class="newgame-form justify-content-center mx-5">
       <%= simple_form_for [@videogame]  do |f| %>
-        <%= f.input :title %>
-        <%= f.input :price %>
-        <%= f.input :condition, collection: ['Nuevo','Usado'] %>
-        <%= f.input :description %>
-        <%= f.input :platform %>
-        <%= f.input :status, collection: ['1','2','3','4','5']  %>
-        <%= f.input :gamepicture, as: :file %>
-        <%= f.submit id="Save" %>
+        <p><%= f.input :title %></p>
+        <p><%= f.input :price %></p>
+        <p><%= f.input :condition, collection: ['Nuevo','Usado'] %></p>
+        <p><%= f.input :description %></p>
+        <p><%= f.input :platform %></p>
+        <p><%= f.input :status, collection: ['1','2','3','4','5']  %></p>
+        <p><%= f.input :gamepicture, as: :file %>
+        <div class="form-actions d-flex justify-content-center">
+          <%# <%= f.submit id="Save" %>
+          <%= f.button :submit, "Save", class: "btn btn-success mx-2 my-3"%>
+        </div>
       <% end %>
       <p></p>
     </div>
