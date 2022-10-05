@@ -1,0 +1,19 @@
+<h1>Users#profile</h1>
+<p>Find me in app/views/users/profile.html.erb</p>
+
+<h2> profile page</h2>
+
+<%= @user.email %>
+<%= @user.bookings %>
+<% if @user.bookings.exists? %>
+  <%#= @user.bookings.each do |books|  %>
+    <%#= books.end_date %>
+    <% @user.bookings.each do |book|  %>
+    <%= book.end_date  %>
+    <% end %>
+    <p>entro</p>
+    <% else %>
+    <p> no tienes bokkiings</p>
+<% end %>
+<%#= p @booking %>
+<%#= raise %>
