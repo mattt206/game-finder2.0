@@ -1,0 +1,49 @@
+.container {
+
+  h2 {
+    color: white;
+    padding-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .form-inputs {
+    color: white;
+  }
+
+  .btn-success {
+    background-color: rgb(7, 219, 7);
+    font-weight: 600;
+    font-style: italic;
+    color: white;
+    border-radius: 100px 40px 100px 40px;
+
+    &:hover{
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .btn-primary {
+    font-weight: 600;
+    font-style: italic;
+    border-radius: 100px 40px 100px 40px;
+
+    &:hover{
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .btn-warning {
+    background-color: rgb(252, 102, 16);
+    font-weight: 600;
+    font-style: italic;
+    color: white;
+    border-radius: 100px 40px 100px 40px;
+
+    &:hover{
+      background-color: black;
+      color: white;
+    }
+  }
+}
