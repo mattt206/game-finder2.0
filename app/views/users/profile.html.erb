@@ -1,3 +1,9 @@
+
+            <form action="users/edit" >
+              <button type="submit" class="btn btn-primary btn-lg my-1" >edit profile</button>
+            </form>
+            <%= link_to "edit", "edit", class: "dropdown-item", class: "Booking-link" %>
+
 <div class="container">
   <%#= Div del nombre y foto de perfil  %>
   <div class = "row">
@@ -6,7 +12,11 @@
       <h3> <%= @user.username %></h3>
     </div>
     <div class="col-sm">
-      <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+      <% if current_user.profilepicture.attached? %>
+          <%= cl_image_tag current_user.profilepicture.key, class: "avatar" %>
+      <% else %>
+          <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar" %></div>
+      <% end %>
     </div>
   </div>
 
@@ -49,8 +59,3 @@
 
 
 </div>
-
-
-
-<%= @user.email %>
-<%= @user.bookings %>

@@ -12,7 +12,7 @@
 
           <%= f.input :username, required: true, autofocus: true %>
           <%= f.input :email, required: true, autofocus: true %>
-          <%#= f.input :profilepicture, as: :file %>
+          <%= f.input :profilepicture, as: :file %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
