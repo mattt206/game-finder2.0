@@ -1,19 +1,56 @@
-<h1>Users#profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
+<div class="container">
+  <%#= Div del nombre y foto de perfil  %>
+  <div class = "row">
+    <h2>My profile</h2>
+    <div class="col-sm">
+      <h3> <%= @user.username %></h3>
+    </div>
+    <div class="col-sm">
+      <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+  </div>
 
-<h2> profile page</h2>
+
+  <%#= Div de los juegos de cada userl  %>
+    <div class = "row">
+      <h2>My games</h2>
+        <div class="col-sm">
+          <% if @user.videogames.exists? %>
+            <% @user.videogames.each do |game|  %>
+              <%= game.title  %>
+              <%= game.platform  %>
+            <% end %>
+          <% else %>
+            <p> You haven't add games yet, START NOW!</p>
+            <form action="videogames/new" >
+              <button type="submit" class="btn btn-primary btn-lg my-1" >New Game</button>
+            </form>
+          <% end %>
+        </div>
+    </div>
+
+
+  <%#= Div de los bookings de cada user  %>
+    <div class = "row">
+      <h2>My Bookings</h2>
+        <div class="col-sm">
+          <% if @user.bookings.exists? %>
+            <% @user.bookings.each do |book|  %>
+              <%= book.end_date  %>
+            <% end %>
+          <% else %>
+            <p> You haven't booking yet, START NOW!</p>
+            <form action="videogames" >
+              <button type="submit" class="btn btn-primary btn-lg my-1" >START!</button>
+            </form>
+          <% end %>
+        </div>
+    </div>
+
+
+</div>
+
+
 
 <%= @user.email %>
 <%= @user.bookings %>
-<% if @user.bookings.exists? %>
-  <%#= @user.bookings.each do |books|  %>
-    <%#= books.end_date %>
-    <% @user.bookings.each do |book|  %>
-    <%= book.end_date  %>
-    <% end %>
-    <p>entro</p>
-    <% else %>
-    <p> no tienes bokkiings</p>
-<% end %>
-<%#= p @booking %>
-<%#= raise %>
