@@ -1,47 +1,58 @@
 <div class="container">
 
       <div class="card-group">
-      <form action="videogames">
-
+        <form action="videogames">
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Retro">Retro</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Pc">Pc</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Ps2">Ps2</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps4">Ps4</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps5">Ps5</button>
-          <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox 260">Xbox 260</button>
+          <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox 260">Xbox 360</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox One">Xbox One</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox Series">Xbox Series</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Switch">Switch</button>
           <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="" >none</button>
-          <p>filtro es: <%= @filtro.class %> <%= @filtro %> </p>
-
-
-            <% if @filtro != "" %>
-                  <%= @videogames.select { |game| game.platform.include?("#{@filtro}") } %>
-                      <p>filtro</p>
-            <% else %>
-                   <p>nada</p>
-            <% end %>
-      </form>
-
+        </form>
       </div>
+
+          <div class="card-group">
+            <% if @filtro != nil %>
+              <% @videogames_filter = @videogames.select { |game| game.platform.include?("#{@filtro}") }%>
+              <% @videogames_filter.each do |game| %>
+                <%= link_to videogame_path(game), style: "text-decoration: none;", class: "a" do %>
+                  <div class="index-card m-2 mt-3">
+                    <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid" %>
+                    <div class="card-body">
+                      <h2> <%= game.title.titleize %> </h5>
+                      <h2> $<%= game.price %> COP </h2>
+                    <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    </div>
+                  </div>
+                <% end %>
+               <% end %>
+            <% else %>
+              <% @videogames.each do |game| %>
+                <%= link_to videogame_path(game), style: "text-decoration: none;" do %>
+                <div class="index-card m-2 mt-3">
+                  <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid" %>
+                  <div class="card-body">
+                    <h2> <%= game.title.titleize %> </h5>
+                    <h2> $<%= game.price %> COP </h2>
+                    <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  </div>
+                </div>
+              <% end %>
+             <% end %>
+            <% end %>
+          </div>
+
+</div>
 
 
 
   <div class="card-group mx-auto">
 
 
-        <% @videogames.each do |game| %>
-          <%= link_to videogame_path(game), style: "text-decoration: none;" do %>
-            <div class="index-card m-2 mt-2">
-                <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid" %>
-              <div class="card-body">
-                <h2> <%= game.title.titleize %> </h5>
-                <h2> $<%= game.price %> COP </h2>
-                <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+
   </div>
 </div>
