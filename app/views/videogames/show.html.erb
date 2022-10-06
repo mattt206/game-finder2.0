@@ -3,7 +3,11 @@
       <div class="card-group row my-2 py-2">
         <div class="show-card col-8 mt-3">
           <div class="show-card-image">
-            <%= cl_image_tag @videogame.gamepicture.key, class: "card-img-top img-fluid"%>
+            <% if @videogame.gamepicture.attached? %>
+              <%= cl_image_tag @videogame.gamepicture.key, class: "card-img-top img-fluid"%>
+            <% else %>
+              <%= image_tag "unknowimg.png", class: "card-img-top img-fluid" %>
+            <% end %>
           </div>
           <div class="show-card-body">
             <h2 ><%= @videogame.title.titleize %></h2>
@@ -55,3 +59,21 @@
 
 
 </div>
+
+
+          <div class="p-nav-item dropdown">
+            <button class="btn btn-primary mt-3" class="form-control" >Filters</button>
+            <%= image_tag "", class: "btn btn-primary mt-3 dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Retro">Retro</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Pc">Pc</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Ps2">Ps2</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps4">Ps4</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps5">Ps5</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox 260">Xbox 360</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox One">Xbox One</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox Series">Xbox Series</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Switch">Switch</button>
+              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="" >none</button>
+            </div>
+          </div>
