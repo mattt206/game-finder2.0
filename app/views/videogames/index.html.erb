@@ -5,8 +5,8 @@
           <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value="play">play station</button>
           <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value="xbox">xbox</button>
           <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value ="pc">pc</button>
-          <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value ="" >none</button>
-          <p>filtro es: <%= @filtro.class %> <%= @filtro %> </p>
+         <button class="btn btn-primary" type="submit" class="form-control" name="filtrop" value ="" >none</button>
+      </form>
 
             <% if @filtro != "" %>
                   <%= @videogames.select { |game| game.platform.include?("#{@filtro}") } %>
@@ -15,8 +15,6 @@
             <% else %>
                    <p>nada</p>
             <% end %>
-
-      </form>
       </div>
 
 
@@ -40,5 +38,3 @@
         <% end %>
   </div>
 </div>
-
-<%= link_to "profile", bookings_path %>
