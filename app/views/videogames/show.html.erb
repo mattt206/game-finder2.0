@@ -2,21 +2,20 @@
 
       <div class="card-group row my-2 py-2">
         <div class="show-card col-8 mt-3">
-          <div>
+          <div class="show-card-image">
             <%= cl_image_tag @videogame.gamepicture.key, class: "card-img-top img-fluid"%>
           </div>
           <div class="show-card-body">
             <h2 ><%= @videogame.title.titleize %></h2>
             <h4><% @videogame.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></h4>
-            <h4> <%= @videogame.description %> </h4>
-            <h4> Platforma: <%= @videogame.platform %></h4>
-            <h4> description: <%= @videogame.description %></h4>
+            <h4> Plataforma: <%= @videogame.platform %></h4>
             <h4> Condición: <%= @videogame.condition %></h4>
+            <p> Descripción: <%= @videogame.description %><p>
 
             <%#= hacer un if si esta alquilado o no  %>
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <div class="show-card-links">
-            <%= @videogame.user.id %>
+            <% @videogame.user.id %>
               <% if @videogame.user.id == current_user.id %>
                 <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                 <%= link_to "Edit", edit_videogame_path(@videogame) %>
@@ -37,32 +36,17 @@
                 <form action= "<%= @videogame.id %>/bookings/new" >
                   <button type="submit" class="Booking-link" > <p>Reservar ahora</p></button>
                 </form>
-                <div class="my-2 d-flex mb-4 justify-content-end">
-                  <%= image_tag "green-button.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
-              </div>
               <% else %>
+                <form>
+                  <button class="booking-link-disabled"> <p>Reservado</p></button>
+                </form>
                 <% if @videogame.bookings.last.user_id == current_user.id %>
-                  <%= link_to "Show Booking", booking_path(@videogame.bookings.last.id) %>
+                  <%= link_to booking_path(@videogame.bookings.last.id) do %>
+                    <button class="Booking-link" > <p>Show booking</p></button>
+                  <% end %>
                 <% end %>
-                <p class="Booking-link text-center">Reservado </p>
-                <div class="my-2 d-flex mb-4 justify-content-end">
-                  <%= image_tag "red-button.png", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
-              </div>
-
               <% end %>
             </div>
-            <div>
-              <p>hola</p>
-              <% if @videogame.bookings.last == nil %>
-              <% else %>
-                <% if @videogame.bookings.last.user_id == current_user.id %>
-                  <%= link_to "Show Booking", booking_path(@videogame.bookings.last.id) %>
-                <% end %>
-                <%=   @videogame.bookings.last.status  %>
-                <%= @videogame.bookings.last.user_id %>
-              <% end %>
-            </div>
-
 
 
         </div>

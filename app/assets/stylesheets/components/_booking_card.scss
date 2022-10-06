@@ -1,6 +1,6 @@
 .booking-card {
   overflow: hidden;
-  height: 390px;
+  height: 300px;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
   padding-left: 0;
   background-color: #4618AC;
@@ -53,4 +53,12 @@
 
 .Booking-link:hover {
   background-color: #ffb224;
+}
+
+.booking-link-disabled {
+  background-color: #ffcc32b0;
+  border: 0;
+  color: black;
+  pointer-events: none;
+  margin-bottom: 10px;
 }
