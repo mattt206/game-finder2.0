@@ -6,4 +6,3 @@ class Videogame < ApplicationRecord
   validates :title, :price, :condition, :platform, :status, presence: true
   validates :description, presence: true, length: { minimum: 8, maximum: 120 }
 end
-
