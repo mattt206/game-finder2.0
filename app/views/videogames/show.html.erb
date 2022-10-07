@@ -1,5 +1,4 @@
 <div class="container">
-
       <div class="card-group row my-2 py-2">
         <div class="show-card col-8 mt-3">
           <div class="show-card-image">
@@ -15,19 +14,24 @@
             <h4> Plataforma: <%= @videogame.platform %></h4>
             <h4> Condición: <%= @videogame.condition %></h4>
             <p> Descripción: <%= @videogame.description %><p>
-            <%#= hacer un if si esta alquilado o no  %>
-            <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
             <div class="show-card-links">
             <% @videogame.user.id %>
-              <%= link_to "Back", videogames_path%>
-              <% if @videogame.user.id == current_user.id %>
-                <%= link_to "Edit", edit_videogame_path(@videogame) %>
-                <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% if @videogame.user.id.nil? %>
+            <% else %>
+            <% if current_user.nil?  %>
+              <%= link_to "Back", videogames_path, class: "btn btn-success mx-2"%>
+            <% else %>
+              <%= link_to "Back", videogames_path, class: "btn btn-success mx-2"%>
+              <% if @videogame.user.id == current_user.id   %>
+                <%= link_to "Edit", edit_videogame_path(@videogame), class: "btn btn-primary mx-2" %>
+                <%= link_to "Delete", videogame_path(@videogame), class: "btn btn-warning mx-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
               <% end %>
+              <% end %>
+            <% end %>
             </div>
           </div>
         </div>
-
         <div class="col-4 mt-3">
           <div class="booking-card p-3">
               <div class="my-2 d-flex justify-content-between mb-4">
@@ -43,36 +47,18 @@
                 <form>
                   <button class="booking-link-disabled"> <p>Reservado</p></button>
                 </form>
-                <% if @videogame.bookings.last.user_id == current_user.id %>
-                  <%= link_to booking_path(@videogame.bookings.last.id) do %>
-                    <button class="Booking-link" > <p>Show booking</p></button>
-                  <% end %>
+                <% if current_user.nil? %>
+                <% else %>
+                  <% if @videogame.bookings.last.user_id == current_user.id %>
+                    <%= link_to booking_path(@videogame.bookings.last.id) do %>
+                      <button class="Booking-link"> <p>Show booking</p></button>
+                    <% end %>
                 <% end %>
               <% end %>
+              <% end %>
+
+
             </div>
-
-
         </div>
       </div>
-
-
-
 </div>
-
-
-          <%# <div class="p-nav-item dropdown">
-            <button class="btn btn-primary mt-3" class="form-control" >Filters</button>
-            <%= image_tag "", class: "btn btn-primary mt-3 dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Retro">Retro</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Pc">Pc</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Ps2">Ps2</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps4">Ps4</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps5">Ps5</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox 260">Xbox 360</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox One">Xbox One</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox Series">Xbox Series</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Switch">Switch</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="" >none</button>
-            </div>
-          </div> %>

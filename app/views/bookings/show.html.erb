@@ -16,8 +16,8 @@
             <%#= hacer un if si esta alquilado o no  %>
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <div class="show-card-links">
-              <%= link_to "Back", videogames_path%>
-              <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <%= link_to "Back", videogames_path, class: "btn btn-success mx-2"%>
+              <%= link_to "Delete", booking_path(@booking), class: "btn btn-warning mx-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
           </div>
         </div>
