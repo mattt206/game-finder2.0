@@ -10,7 +10,7 @@
             <% end %>
           </div>
           <div class="show-card-body">
-            <h2 ><%= @videogame.title.titleize %></h2>
+            <h2><%= @videogame.title.titleize %></h2>
             <h4><% @videogame.status.to_i.times do%><i class="fa-regular fa-star star-color"></i><% end %></h4>
             <h4> Plataforma: <%= @videogame.platform %></h4>
             <h4> Condición: <%= @videogame.condition %></h4>
@@ -19,10 +19,10 @@
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <div class="show-card-links">
             <% @videogame.user.id %>
-              <%= link_to "Back", videogames_path%>
+              <%= link_to "Back", videogames_path, class: "btn btn-success" %>
               <% if @videogame.user.id == current_user.id %>
-                <%= link_to "Edit", edit_videogame_path(@videogame) %>
-                <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                <%= link_to "Edit", edit_videogame_path(@videogame), class: "btn btn-primary mx-2" %>
+                <%= link_to "Delete", videogame_path(@videogame), class: "btn btn-warning mx-2",  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
               <% end %>
             </div>
           </div>
