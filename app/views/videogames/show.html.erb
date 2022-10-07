@@ -42,11 +42,13 @@
                 <form>
                   <button class="booking-link-disabled"> <p>Reservado</p></button>
                 </form>
-                <% if @videogame.bookings.last.user_id == current_user.id %>
-                  <%= link_to booking_path(@videogame.bookings.last.id) do %>
-                    <button class="Booking-link" > <p>Show booking</p></button>
-                  <% end %>
+                <% if @videogame.bookings.last.user_id.nil? %>
+                  <% if @videogame.bookings.last.user_id == current_user.id %>
+                    <%= link_to booking_path(@videogame.bookings.last.id) do %>
+                      <button class="Booking-link" > <p>Show booking</p></button>
+                    <% end %>
                 <% end %>
+              <% end %>
               <% end %>
             </div>
         </div>
