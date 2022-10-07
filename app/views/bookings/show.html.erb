@@ -1,14 +1,25 @@
-<div class="card">
-  <div class="card-header">
-    Booking_active
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">star_date:<%= @booking.star_date %></p>
-    <p class="card-text">End_date:<%= @booking.end_date %></p>
-    <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container">
+  <div class="my-2 py-2">
+  <div class="show-card mt-3">
+          <div class="show-card-image">
+            <% if @booking.videogame.gamepicture.attached? %>
+              <%= cl_image_tag @booking.videogame.gamepicture.key, class: "card-img-top img-fluid"%>
+            <% else %>
+              <%= image_tag "unknowimg.png", class: "card-img-top img-fluid" %>
+            <% end %>
+          </div>
+          <div class="show-card-body">
+            <h2 ><%= @booking.videogame.title.titleize %></h2>
+            <h3> Plataforma: <%= @booking.videogame.platform %></h3>
+            <h4 class="card-text">Desde:   <%= @booking.star_date.to_date %></h4>
+            <h4 class="card-text">Hasta:   <%= @booking.end_date.to_date %></h4>
+            <%#= hacer un if si esta alquilado o no  %>
+            <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <div class="show-card-links">
+              <%= link_to "Back", videogames_path%>
+              <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
-
-
