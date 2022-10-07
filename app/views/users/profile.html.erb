@@ -1,34 +1,57 @@
 
-            <form action="users/edit" >
-              <button type="submit" class="btn btn-primary btn-lg my-1" >edit profile</button>
-            </form>
-            <%= link_to "edit", "edit", class: "dropdown-item", class: "Booking-link" %>
-
 <div class="container">
   <%#= Div del nombre y foto de perfil  %>
-  <div class = "row">
-    <h2>My profile</h2>
-    <div class="col-sm">
+  <div class="">
+    <div class = "profile-title mt-4 d-flex align-items-center">
+      <div>
+        <% if current_user.profilepicture.attached? %>
+          <%= cl_image_tag current_user.profilepicture.key, class: "avatar profile-avatar" %>
+        <% else %>
+          <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar profile-avatar" %></div>
+        <% end %>
+      </div>
+    <div>
+      <div class= "profile-title-title">
+        <h2 class="mt-2">My profile</h2>
+        <%= link_to "edit", class: "" do %>
+          <button type="submit" class="btn btn-primary btn-sm profile-btn-edit" >edit profile</button>
+        <% end %>
+      </div>
       <h3> <%= @user.username %></h3>
     </div>
-    <div class="col-sm">
-      <% if current_user.profilepicture.attached? %>
-          <%= cl_image_tag current_user.profilepicture.key, class: "avatar" %>
-      <% else %>
-          <%= image_tag "https://i.imgur.com/W7RwMed.png", class: "avatar" %></div>
-      <% end %>
-    </div>
+
+  </div>
   </div>
 
 
   <%#= Div de los juegos de cada userl  %>
-    <div class = "row">
-      <h2>My games</h2>
+    <div class = "row mt-4">
+      <h2 class="mb-0 pb-0 mt-3">My games</h2>
         <div class="col-sm">
           <% if @user.videogames.exists? %>
             <% @user.videogames.each do |game|  %>
-              <%= game.title  %>
-              <%= game.platform  %>
+            <%= link_to videogame_path(game), style: "text-decoration: none;" do %>
+                  <div class="profile-game-card m-2 mt-3">
+                    <div class="profile-game-card-image">
+                      <% if game.gamepicture.attached? %>
+                        <%= cl_image_tag game.gamepicture.key, class: "card-img-top img-fluid" %>
+                      <% else %>
+                        <%= image_tag "unknowimg.png", class: "card-img-top img-fluid" %>
+                      <% end %>
+                    </div>
+                  <div class="card-body">
+                    <h2> <%= game.title.titleize %> </h5>
+                    <h2> $<%= game.price %> COP </h2>
+                    <div>
+                      <% if game.bookings.last == nil %>
+                        <p>Sin Reservar</p>
+                      <% else %>
+                          <p class="text-yellow">Reservado</p>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           <% else %>
             <p> You haven't add games yet, START NOW!</p>
@@ -39,14 +62,30 @@
         </div>
     </div>
 
-
   <%#= Div de los bookings de cada user  %>
-    <div class = "row">
-      <h2>My Bookings</h2>
+    <div class = "row mt-4">
+      <h2 class="mb-0 pb-0 mt-3">My Bookings</h2>
         <div class="col-sm">
           <% if @user.bookings.exists? %>
             <% @user.bookings.each do |book|  %>
-              <%= book.end_date  %>
+              <%= link_to booking_path(book), style: "text-decoration: none;" do %>
+                <div class="profile-game-card m-2 mt-3">
+                  <div class="profile-game-card-image">
+                    <% if book.videogame.gamepicture.attached? %>
+                      <%= cl_image_tag book.videogame.gamepicture.key, class: "card-img-top img-fluid"%>
+                    <% else %>
+                      <%= image_tag "unknowimg.png", class: "card-img-top img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="profile-game-card-body">
+                    <h2 ><%= book.videogame.title.titleize %></h2>
+                    <p class="card-text">Desde:   <%= book.star_date.to_date %></p>
+                    <p class="card-text">Hasta:   <%= book.end_date.to_date %></p>
+                    <%#= hacer un if si esta alquilado o no  %>
+                    <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           <% else %>
             <p> You haven't booking yet, START NOW!</p>
