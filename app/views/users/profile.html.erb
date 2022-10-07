@@ -63,8 +63,8 @@
     </div>
 
   <%#= Div de los bookings de cada user  %>
-    <div class = "row mt-4">
-      <h2 class="mb-0 pb-0 mt-3">My Bookings</h2>
+    <div class = "container-gamesprofile row mt-4">
+      <h2 class="mb-3 pb-0 mt-3">My Bookings</h2>
         <div class="col-sm">
           <% if @user.bookings.exists? %>
             <% @user.bookings.each do |book|  %>
@@ -88,9 +88,9 @@
               <% end %>
             <% end %>
           <% else %>
-            <p> You haven't booking yet, START NOW!</p>
+            <div class= "booking-status d-flex justify-content-left"><p> You haven't booking yet, <strong>START NOW!</strong></p></div>
             <form action="videogames" >
-              <button type="submit" class="btn btn-primary btn-lg my-1" >START!</button>
+              <button type="submit" class="btn btn-success btn-lg my-1" ><%= link_to "START!", videogames_path%></button>
             </form>
           <% end %>
         </div>
