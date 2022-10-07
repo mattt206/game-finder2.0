@@ -19,6 +19,7 @@
             <%#= link_to "Delete", videogame_path(game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <div class="show-card-links">
             <% @videogame.user.id %>
+            <% if @videogame.user.id.nil? %>
               <%= link_to "Back", videogames_path, class: "btn btn-success" %>
               <% if @videogame.user.id == current_user.id %>
                 <%= link_to "Edit", edit_videogame_path(@videogame), class: "btn btn-primary mx-2" %>
@@ -55,24 +56,4 @@
         </div>
       </div>
 
-
-
 </div>
-
-
-          <%# <div class="p-nav-item dropdown">
-            <button class="btn btn-primary mt-3" class="form-control" >Filters</button>
-            <%= image_tag "", class: "btn btn-primary mt-3 dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Retro">Retro</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Pc">Pc</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value="Ps2">Ps2</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps4">Ps4</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Ps5">Ps5</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox 260">Xbox 360</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox One">Xbox One</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Xbox Series">Xbox Series</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="Switch">Switch</button>
-              <button class="btn btn-primary mt-3" type="submit" class="form-control" name="filtrop" value ="" >none</button>
-            </div>
-          </div> %>
