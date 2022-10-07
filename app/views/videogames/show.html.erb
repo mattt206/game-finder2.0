@@ -18,6 +18,7 @@
             <div class="show-card-links">
             <% @videogame.user.id %>
             <% if @videogame.user.id.nil? %>
+              
             <% else %>
             <% if current_user.nil?  %>
               <%= link_to "Back", videogames_path, class: "btn btn-success mx-2"%>
