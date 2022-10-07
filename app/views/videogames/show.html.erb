@@ -18,12 +18,16 @@
             <div class="show-card-links">
             <% @videogame.user.id %>
             <% if @videogame.user.id.nil? %>
-              <% if @videogame.user.id == current_user.id %>
+            <% else %>
+            <% if current_user.nil?  %>
+              <% else %>
+              <% if @videogame.user.id == current_user.id   %>
                 <%= link_to "Delete", videogame_path(@videogame), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                 <%= link_to "Edit", edit_videogame_path(@videogame) %>
               <% end %>
               <%= link_to "Back", videogames_path%>
               <% end %>
+            <% end %>
             </div>
           </div>
         </div>
@@ -42,7 +46,8 @@
                 <form>
                   <button class="booking-link-disabled"> <p>Reservado</p></button>
                 </form>
-                <% if @videogame.bookings.last.user_id.nil? %>
+                <% if current_user.nil? %>
+                <% else %>
                   <% if @videogame.bookings.last.user_id == current_user.id %>
                     <%= link_to booking_path(@videogame.bookings.last.id) do %>
                       <button class="Booking-link" > <p>Show booking</p></button>
