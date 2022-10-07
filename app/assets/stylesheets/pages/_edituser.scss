@@ -1,6 +1,4 @@
-.edit-container {
-  background-color: #1F0A4E;
-  border-radius: 10px;
+.container {
 
   h2 {
     color: white;
@@ -16,31 +14,14 @@
     background-color: rgb(7, 219, 7);
     font-weight: 600;
     font-style: italic;
-  color: white;
-  border-radius: 100px 40px 100px 40px;
-
-  &:hover{
-    background-color: black;
     color: white;
+    border-radius: 100px 40px 100px 40px;
+
+    &:hover{
+      background-color: black;
+      color: white;
+    }
   }
-  }
-}
-
-.dissatisfied-container {
-  background-color: #1F0A4E;
-  border-radius: 10px;
-
-  h2 {
-    color: white;
-    padding-bottom: 15px;
-    font-weight: bold;
-    padding: 10px 0px 0px;
-  }
-}
-
-
-.group-cancel {
-  padding: 0px 0px 30px;
 
   .btn-primary {
     font-weight: 600;
@@ -66,3 +47,4 @@
     }
   }
 }
+
