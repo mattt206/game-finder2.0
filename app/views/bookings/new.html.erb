@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="col-8 mx-auto">
-    <div>
-      <%= simple_form_for [@videogame, @booking]  do |f| %>
-        <%= f.input :star_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Save" %>
-      <% end %>
+  <div class="col-8 mx-auto class=">
+    <div class="booking-new-card mt-5">
+      <div>
+        <%= simple_form_for [@videogame, @booking]  do |f| %>
+          <p><%= f.input :star_date %></p>
+          <p><%= f.input :end_date %></p>
+          <%= f.submit "Save", class: "btn btn-success mx-2 my-3" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
